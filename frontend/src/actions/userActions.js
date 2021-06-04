@@ -14,5 +14,5 @@ import {
     USER_UPDATE_PROFILE_REQUEST,
     USER_UPDATE_PROFILE_FAIL,
     USER_UPDATE_PROFILE_SUCCESS
-} from "./../constants/UserConstant";
+} from "../constants/userConstant";
 

@@ -1,0 +1,17 @@
+.post-detail-container {
+  margin-top: 120px;
+}
+
+.post-detail-card-main {
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-color: #616161;
+}
+.text-center {
+  font-size: 24;
+  font-weight: "bold";
+  color: black;
+}
+.post-detail-add-comment {
+}
