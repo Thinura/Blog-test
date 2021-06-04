@@ -1,0 +1,24 @@
+.navbar {
+  background-color: #fcdb00 !important;
+  width: auto;
+  color: white !important;
+}
+.nav-cal {
+  width: auto;
+  color: rgb(0, 0, 0) !important;
+  font-size: 18px;
+}
+
+.login {
+  float: right !important;
+}
+
+/* Desktop */
+@media only screen and (min-width: 992px) {
+  .navbar {
+    height: 90px;
+  }
+  .nav-cal {
+    margin-left: 10px;
+  }
+}
