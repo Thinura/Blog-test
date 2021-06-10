@@ -49,6 +49,8 @@ export const createPost = (
             payload: data
         })
 
+        dispatch(listPosts())
+
     } catch (error) {
         dispatch({
             type: POST_CREATE_FAIL,
@@ -136,6 +138,9 @@ export const createPostComment = (data) => async (dispatch) => {
         dispatch({
             type: POST_COMMENT_SUCCESS,
         })
+
+        dispatch(getPostComment(data._id));
+
     } catch (error) {
         dispatch({
             type: POST_COMMENT_FAIL,

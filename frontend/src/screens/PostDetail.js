@@ -40,7 +40,6 @@ const PostDetail = () => {
             }
         ))
         e.preventDefault()
-        window.location.reload()
         setComment("")
     }
 
