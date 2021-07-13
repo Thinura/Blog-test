@@ -97,12 +97,13 @@ export const getPostById = (id) => async (dispatch) => {
                 'Content-type': 'application/json',
             },
         }
-        console.log("asdsa")
 
         const { data } = await axios.get(
             `${REACT_APP_SERVER_URL}/post/${id}`,
             config
         )
+
+
         dispatch({
             type: POST_DETAILS_SUCCESS,
             payload: data
@@ -166,6 +167,23 @@ export const getPostComment = (id) => async (dispatch) => {
             type: POST_COMMENT_DETAILS_SUCCESS,
             payload: data.response
         })
+    } catch (error) {
+        dispatch({
+            type: POST_COMMENT_DETAILS_FAIL,
+            payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message
+        })
+    }
+}
+
+export const getResetCommentDetails = () => (dispatch) => {
+    try {
+        dispatch({
+            type: POST_COMMENT_DETAILS_RESET
+        })
+
     } catch (error) {
         dispatch({
             type: POST_COMMENT_DETAILS_FAIL,

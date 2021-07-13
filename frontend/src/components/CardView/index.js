@@ -16,7 +16,6 @@ const CardView = () => {
     const postList = useSelector(state => state.postList)
 
     const { loading, error, post } = postList
-    console.log(post)
     const postView = (id) => {
         history.push(`/post/${id}`)
     }

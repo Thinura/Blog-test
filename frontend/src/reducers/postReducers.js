@@ -74,6 +74,7 @@ export const postCommentCreateReducer = (state = {}, action) => {
 
 
 export const postCommentDetailsReducer = (state = { post: {} }, action) => {
+    console.log("")
     switch (action.type) {
         case POST_COMMENT_DETAILS_REQUEST:
             return { loading: true, ...state }
@@ -81,6 +82,9 @@ export const postCommentDetailsReducer = (state = { post: {} }, action) => {
             return { loading: false, post: action.payload }
         case POST_COMMENT_DETAILS_FAIL:
             return { loading: false, post: action.payload }
+        case POST_COMMENT_DETAILS_RESET: {
+            return { loading: true, post: {} }
+        }
         default:
             return state
     }

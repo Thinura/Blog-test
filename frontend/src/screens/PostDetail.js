@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Notification from './../components/Notification';
 import Loader from './../components/Loader';
 import CommentView from './../components/CommentView'
-import { getPostById, createPostComment, getPostComment } from './../actions/postActions';
+import { getPostById, createPostComment, getPostComment, getResetCommentDetails } from './../actions/postActions';
 import './index.css';
 
 const PostDetail = () => {
@@ -22,15 +22,13 @@ const PostDetail = () => {
     const { loading, error, post } = postCommentDetails
 
     useEffect(() => {
+
         if (post && Object.keys(post).length === 0 && post.constructor === Object) {
+            console.log("post details Id ", id)
+
             dispatch(getPostComment(id))
-            console.log(post && Object.keys(post).length === 0 && post.constructor === Object)
         }
     }, [dispatch, id]);
-
-    useEffect(() => {
-        dispatch(getPostById(id))
-    }, [dispatch, success, id]);
 
     const submitHandler = (e) => {
         dispatch(createPostComment(
@@ -43,6 +41,16 @@ const PostDetail = () => {
         setComment("")
     }
 
+    useEffect(() => {
+        return () => {
+            dispatch(getResetCommentDetails())
+            console.log("post componenetwillUnmount", post)
+
+
+        };
+    }, [])
+
+    console.log("post ", post)
     return (
         <Container style={{ marginTop: "120px" }}>
             {loading && <Loader />}
